@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION createRows() RETURNS integer as $$
+DECLARE
+  return_val integer;
+BEGIN
+    FOR i in 1..100000000
+    LOOP
+      insert into infringing_urls(url) values('http://example.com/url' || i);
+    END LOOP;
+    RETURN 1;
+END
+$$ LANGUAGE 'plpgsql' ;

@@ -1,0 +1,3 @@
+Vagrant.configure('2') do |config|
+  config.vm.box = 'thoughtbot/ubuntu-12-04-server-with-laptop'
+end
