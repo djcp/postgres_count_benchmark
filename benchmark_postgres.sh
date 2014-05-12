@@ -22,7 +22,7 @@ benchmark_count(){
   execute_in_vagrant 'psql template1 -c "create database count_test"'
   execute_in_vagrant 'psql count_test -c "create table infringing_urls(id serial primary key, url varchar(1024))"'
   execute_in_vagrant 'cat /vagrant/create_rows.psql | psql count_test'
-  execute_in_vagrant 'psql count_test -c "select createRows()"'
+  execute_in_vagrant 'psql count_test -c "BEGIN; select createRows(); COMMIT;"'
 
   sleep 5
 
